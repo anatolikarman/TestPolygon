@@ -35,24 +35,21 @@ public class EvenNumbersIterator implements Iterator {
      *
      * @return boolean
      */
-    public boolean hasNext() {
+    public boolean hasNext()
+    {
         boolean hasNext = false;
 
-        if (hasNextCalled) {
-            hasNext = hasNextValue;
-        } else {
-            hasNextCalled = true;
+        hasNextCalled = true;
 
-            while (hasNext = iterator.hasNext()) {
-                Integer number = iterator.next();
+        while (hasNext = iterator.hasNext())
+        {
+            Integer number = iterator.next();
 
-                if (number != null && number % 2 == 0) {
-                    next = number;
-                    break;
-                }
+            if (number != null && number % 2 == 0)
+            {
+                next = number;
+                break;
             }
-
-            hasNextValue = hasNext;
         }
 
         return hasNext;
