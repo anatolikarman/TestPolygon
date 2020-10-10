@@ -1,7 +1,5 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * This iterator implementation takes in an iterator of integers.
@@ -10,11 +8,9 @@ import java.util.ArrayList;
  */
 public class EvenNumbersIterator implements Iterator {
     private Iterator<Integer> iterator;
-
     private boolean hasNextCalled;
-
     private Integer next;
-    private boolean hasNextValue;
+
 
     /**
      * Constructor which takes in an Iterator of Integers.
@@ -23,10 +19,6 @@ public class EvenNumbersIterator implements Iterator {
      * @throws RuntimeException - Throws runtime exception if the iterator being passed is null.
      */
     public EvenNumbersIterator(Iterator<Integer> iterator) {
-        if (iterator == null) {
-            throw new RuntimeException("Iterator cannot be null.");
-        }
-
         this.iterator = iterator;
     }
 
@@ -35,24 +27,18 @@ public class EvenNumbersIterator implements Iterator {
      *
      * @return boolean
      */
-    public boolean hasNext()
-    {
-        boolean hasNext = false;
+    public boolean hasNext() {
 
-        hasNextCalled = true;
-
-        while (hasNext = iterator.hasNext())
-        {
+        while (iterator.hasNext()) {
             Integer number = iterator.next();
-
-            if (number != null && number % 2 == 0)
-            {
+            if (number != null && number % 2 == 0) {
                 next = number;
+                hasNextCalled = true;
                 break;
             }
         }
 
-        return hasNext;
+        return hasNextCalled;
     }
 
     /**
@@ -88,6 +74,6 @@ public class EvenNumbersIterator implements Iterator {
     }
 
     public void remove() {
-
+        iterator.remove();
     }
 }

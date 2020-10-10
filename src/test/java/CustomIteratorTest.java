@@ -17,9 +17,11 @@ public class CustomIteratorTest {
 
     @Test
     public void allEvenNumbersList() {
+
         list = new ArrayList<Integer>(Arrays.asList(8, 4, 10, 12, 14));
         iterator = list.iterator();
         customIterator = new EvenNumbersIterator(iterator);
+
         while (customIterator.hasNext()) {
             resultList.add(customIterator.next());
         }
@@ -28,13 +30,57 @@ public class CustomIteratorTest {
 
     @Test
     public void allOddNumbers() {
+
         list = new ArrayList<Integer>(Arrays.asList(13, 5, 99, 11, 33));
         iterator = list.iterator();
         customIterator = new EvenNumbersIterator(iterator);
+
         while (customIterator.hasNext()) {
             resultList.add(customIterator.next());
         }
         Assert.assertTrue(resultList.isEmpty());
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void shouldThrowNoSuchElementException() {
+
+        list = new ArrayList<Integer>();
+        iterator = list.iterator();
+        customIterator = new EvenNumbersIterator(iterator);
+
+        customIterator.next();
+    }
+
+    @Test
+    public void hasNextTest() {
+
+        list = new ArrayList<Integer>();
+        iterator = list.iterator();
+        customIterator = new EvenNumbersIterator(iterator);
+
+        Assert.assertFalse(customIterator.hasNext());
+    }
+
+    @Test
+    public void removeShouldReturnOddNumberList() {
+
+        boolean evenNumberIsPresent = false;
+        list = new ArrayList<Integer>(Arrays.asList(94, 5, 66, 12, 33));
+        iterator = list.iterator();
+        customIterator = new EvenNumbersIterator(iterator);
+
+        while (customIterator.hasNext()) {
+            customIterator.next();
+            customIterator.remove();
+        }
+        for (Integer i : list
+        ) {
+            if (i % 2 == 0) {
+                evenNumberIsPresent = true;
+                break;
+            }
+        }
+        Assert.assertFalse(evenNumberIsPresent);
     }
 
 }
