@@ -2,7 +2,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+
 import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class CustomIteratorTest {
     private List<Integer> list;
@@ -12,13 +15,13 @@ public class CustomIteratorTest {
 
     @Before
     public void initializeIteratorAndResultList() {
-        resultList = new ArrayList<Integer>();
+        resultList = new ArrayList<>();
     }
 
     @Test
     public void allEvenNumbersList() {
 
-        list = new ArrayList<Integer>(Arrays.asList(8, 4, 10, 12, 14));
+        list = new ArrayList<>(Arrays.asList(8, 4, 10, 12, 14));
         iterator = list.iterator();
         customIterator = new EvenNumbersIterator(iterator);
 
@@ -31,7 +34,7 @@ public class CustomIteratorTest {
     @Test
     public void allOddNumbers() {
 
-        list = new ArrayList<Integer>(Arrays.asList(13, 5, 99, 11, 33));
+        list = new ArrayList<>(Arrays.asList(13, 5, 99, 11, 33));
         iterator = list.iterator();
         customIterator = new EvenNumbersIterator(iterator);
 
@@ -54,7 +57,7 @@ public class CustomIteratorTest {
     @Test
     public void hasNextTest() {
 
-        list = new ArrayList<Integer>();
+        list = new ArrayList<>();
         iterator = list.iterator();
         customIterator = new EvenNumbersIterator(iterator);
 
@@ -65,7 +68,7 @@ public class CustomIteratorTest {
     public void removeShouldReturnOddNumberList() {
 
         boolean evenNumberIsPresent = false;
-        list = new ArrayList<Integer>(Arrays.asList(94, 5, 66, 12, 33));
+        list = new ArrayList<>(Arrays.asList(94, 5, 66, 12, 33));
         iterator = list.iterator();
         customIterator = new EvenNumbersIterator(iterator);
 
@@ -73,14 +76,9 @@ public class CustomIteratorTest {
             customIterator.next();
             customIterator.remove();
         }
-        for (Integer i : list
-        ) {
-            if (i % 2 == 0) {
-                evenNumberIsPresent = true;
-                break;
-            }
-        }
-        Assert.assertFalse(evenNumberIsPresent);
+
+        list = list.stream().filter(i -> i % 2 != 0).collect(Collectors.toList());
+        Assert.assertFalse(list.isEmpty());
     }
 
 }
