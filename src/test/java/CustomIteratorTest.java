@@ -47,7 +47,7 @@ public class CustomIteratorTest {
     @Test(expected = NoSuchElementException.class)
     public void shouldThrowNoSuchElementException() {
 
-        list = new ArrayList<Integer>();
+        list = new ArrayList<>();
         iterator = list.iterator();
         customIterator = new EvenNumbersIterator(iterator);
 

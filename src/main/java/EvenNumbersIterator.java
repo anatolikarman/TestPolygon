@@ -27,49 +27,36 @@ public class EvenNumbersIterator implements Iterator {
      *
      * @return boolean
      */
+    @Override
     public boolean hasNext() {
-
+        hasNextCalled = false;
         while (iterator.hasNext()) {
-            Integer number = iterator.next();
-            if (number != null && number % 2 == 0) {
-                next = number;
+            next = iterator.next();
+            if (next % 2 == 0) {
                 hasNextCalled = true;
                 break;
             }
-        }
 
+        }
         return hasNextCalled;
     }
 
-    /**
-     * Returns the next element of the iterator. Throws NoSuchElementException if there is no more elements.
-     *
-     * @return Object
-     */
+    @Override
     public Integer next() {
         Integer returnValue = null;
-
         if (hasNextCalled) {
-            hasNextCalled = false;
-            returnValue = next;
-
-            if (returnValue == null) {
-                throw new NoSuchElementException();
-            }
-        } else {
-            while (iterator.hasNext()) {
-                returnValue = iterator.next();
-
-                if (returnValue != null && returnValue % 2 == 0) {
-                    break;
-                }
-            }
-
-            if (returnValue == null) {
-                throw new NoSuchElementException();
+            return next;
+        }
+        while (iterator.hasNext()) {
+            returnValue = iterator.next();
+            if (returnValue % 2 == 0) {
+                break;
             }
         }
-
+        if (returnValue == null
+        ) {
+            throw new NoSuchElementException();
+        }
         return returnValue;
     }
 
