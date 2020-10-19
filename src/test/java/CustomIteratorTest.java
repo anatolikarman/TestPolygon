@@ -42,15 +42,14 @@ public class CustomIteratorTest {
         while (customIterator.hasNext()) {
             resultList.add(customIterator.next());
         }
-        Assert.assertTrue("New list should not contain any values after iteration"
-                , resultList.isEmpty());
+        Assert.assertTrue("New list should not contain any values after iteration",
+                resultList.isEmpty());
     }
 
     @Test(expected = NoSuchElementException.class)
     public void shouldThrowNoSuchElementException() {
 
         list = new ArrayList<>();
-        iterator = list.iterator();
         customIterator = new EvenNumbersIterator(list);
 
         customIterator.next();
@@ -60,7 +59,6 @@ public class CustomIteratorTest {
     public void hasNextTest() {
 
         list = new ArrayList<>();
-        iterator = list.iterator();
         customIterator = new EvenNumbersIterator(list);
 
         Assert.assertFalse("HasNext did not return false for a null element", customIterator.hasNext());

@@ -236,7 +236,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603110042302" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603110698110" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -254,7 +254,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CustomIteratorTest.allEvenNumbersList">
+  <component name="RunManager" selected="JUnit.CustomIteratorTest">
     <configuration name="CustomIteratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestPolygon" />
       <option name="PACKAGE_NAME" value="" />
@@ -305,8 +305,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CustomIteratorTest.allEvenNumbersList" />
         <item itemvalue="JUnit.CustomIteratorTest" />
+        <item itemvalue="JUnit.CustomIteratorTest.allEvenNumbersList" />
         <item itemvalue="JUnit.CustomIteratorTest.shouldThrowNoSuchElementException" />
         <item itemvalue="JUnit.CustomIteratorTest.removeShouldReturnOddNumberList" />
         <item itemvalue="JUnit.CustomIteratorTest.shouldReturnOddNumberList" />
