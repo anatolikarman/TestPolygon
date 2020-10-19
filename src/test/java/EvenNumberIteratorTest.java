@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-public class CustomIteratorTest {
+public class EvenNumberIteratorTest {
     private List<Integer> list;
     private List<Integer> resultList;
     private Iterator<Integer> iterator;
