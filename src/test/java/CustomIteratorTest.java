@@ -14,7 +14,7 @@ public class CustomIteratorTest {
     private EvenNumbersIterator customIterator;
 
     @Before
-    public void initializeIteratorAndResultList() {
+    public void initializeResultList() {
         resultList = new ArrayList<>();
     }
 
@@ -32,7 +32,7 @@ public class CustomIteratorTest {
     }
 
     @Test
-    public void allOddNumbers() {
+    public void allOddNumbersList() {
 
         list = new ArrayList<>(Arrays.asList(13, 5, 99, 11, 33));
         iterator = list.iterator();
@@ -65,7 +65,7 @@ public class CustomIteratorTest {
     }
 
     @Test
-    public void removeShouldReturnOddNumberList() {
+    public void removeMethodShouldReturnOddNumberList() {
 
         boolean evenNumberIsPresent = false;
         list = new ArrayList<>(Arrays.asList(94, 5, 66, 12, 33));
