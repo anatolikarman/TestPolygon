@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 
@@ -8,8 +9,8 @@ public class EvenNumbersIterator implements Iterator {
     private Integer next;
 
 
-    public EvenNumbersIterator(Iterator<Integer> iterator) {
-        this.iterator = iterator;
+    public EvenNumbersIterator(List<Integer> list) {
+        iterator = list.iterator();
     }
 
 
